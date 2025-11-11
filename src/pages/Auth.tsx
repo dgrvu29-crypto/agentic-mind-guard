@@ -25,21 +25,15 @@ const Auth = () => {
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const { error } = await signIn(email, password);
+    await signIn(email, password);
     setLoading(false);
-    if (!error) {
-      navigate('/chat');
-    }
   };
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const { error } = await signUp(email, password, fullName);
+    await signUp(email, password, fullName);
     setLoading(false);
-    if (!error) {
-      navigate('/chat');
-    }
   };
 
   return (
